@@ -40,5 +40,3 @@ jobs:
           path: results/results.txt
           prefix: Benchmark Results
 ```
-
-# Test PR
