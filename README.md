@@ -33,7 +33,7 @@ jobs:
         with:
           name: results
       - name: comment PR
-        uses: machine-learning-apps/pr-comment@master
+        uses: fuzzbuzz/pr-comment@1.0.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
