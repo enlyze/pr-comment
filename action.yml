@@ -11,9 +11,14 @@ inputs:
   prefix:
     description: comment prefix
     required: true
+  on-update:
+    description: control behavior on update can be append or replace (default append)
+    required: false
+    default: append
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.path }}
     - ${{ inputs.prefix }}
+    - ${{ inputs.replace }}

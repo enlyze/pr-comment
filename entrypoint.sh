@@ -36,6 +36,7 @@ else
 end
 file_path = ARGV[0]
 prefix = ARGV[1]
+on_update = ARGV[2]
 
 puts Dir.entries(".")
 
@@ -48,5 +49,13 @@ if com == nil
   github.add_comment(repo, pr_number, prefix + "\n\n" + message)
 else
   cur_time = Time.new
-  com = github.update_comment(repo, com["id"], com["body"] + "\n\nUpdate on " + cur_time.inspect + "\n\n" + message)
+  timestamp = "\n\nUpdate on " + cur_time.inspect + "\n\n"
+
+  if on_update == "replace"
+    body = prefix + timestamp + message
+  else
+    body = com["body"] + timestamp + message
+  end
+
+  com = github.update_comment(repo, com["id"], body)
 end
