@@ -11,7 +11,7 @@ inputs:
   prefix:
     description: comment prefix
     required: true
-  on-update:
+  action:
     description: control behavior on update can be append or replace (default append)
     required: false
     default: append
@@ -21,4 +21,4 @@ runs:
   args:
     - ${{ inputs.path }}
     - ${{ inputs.prefix }}
-    - ${{ inputs.replace }}
+    - ${{ inputs.action }}

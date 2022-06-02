@@ -36,7 +36,7 @@ else
 end
 file_path = ARGV[0]
 prefix = ARGV[1]
-on_update = ARGV[2]
+action = ARGV[2]
 
 puts Dir.entries(".")
 
@@ -51,7 +51,7 @@ else
   cur_time = Time.new
   timestamp = "\n\nUpdate on " + cur_time.inspect + "\n\n"
 
-  if on_update == "replace"
+  if action == "replace"
     body = prefix + timestamp + message
   else
     body = com["body"] + timestamp + message
